@@ -7,7 +7,7 @@
 Pour la réalisation de se projet, nous allons nous intéresser à quelques outils de création de *containers* tel que :
 
 * Docker
-* lxd
+* lxc
 
 Ces technologie de conteneurisation est relativement récente et permet :
 
