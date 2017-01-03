@@ -22,7 +22,7 @@ Extrait de [www.infoq.com](https://www.infoq.com/fr/articles/docker-sous-le-capo
 
 * Les namespaces vont permettre de rendre indépendante des fonctionnalités. Par exemple, plusieurs interfaces réseaux avec chacunes leur propre table de routage évoluront indépendamment les unes des autres. Ou des processus seront isolés et ne pourrons pas communiquer les uns avec les autres. Ou encore, des utilisateurs partageront des espaces de droit isolés, permettant ainsi d'être root dans un conteneurs sans pouvoir être root sur l'hôte.
 
-* [Le MAC (Mandatory acces control)](http://blog.securite.free.fr/index.php/mac-dac-rbac-on-parle-de-controle-dacces) utilisé lorsque les décisions de protection ne doivent pas être prisent par le propriétaire des objets concernés.
+* [Le MAC (Mandatory acces control)](http://blog.securite.free.fr/index.php/mac-dac-rbac-on-parle-de-controle-dacces) utilisé lorsque les décisions de protection ne doivent pas être prises par le propriétaire des objets concernés.
 
 * CGROUPS (groupe de contrôle). Cette fonctionnalité du noyau est utilisé pour limiter (et mesurer) l'usage du [CPU](https://fr.wikipedia.org/wiki/Processeur), l'utilisation réseau, la consommation de RAM pour chaque conteneurs.
 
