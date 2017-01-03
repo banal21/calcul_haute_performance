@@ -13,3 +13,5 @@ Les nouvelles technologies de contenerisations (docker, lxd) sont en mesure d'ap
 
 * Un conteneur permet d'isoler un ou plusieurs processus
 * On peut effectuer un instantané mémoire incluse (snapshot stateful) d'un conteneur, ce qui permet, en cas de coupure de courant, de relancer le processus à partir de son dernier instantané.
+
+_L'objectif_ du projet est de réaliser un état de l'art sur l'utilisation de technologie de conteneurisation dans le contexte des calculs hautes performance.
