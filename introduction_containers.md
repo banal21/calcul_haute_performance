@@ -9,7 +9,7 @@ Pour la réalisation de se projet, nous allons nous intéresser à quelques outi
 * Docker
 * lxd
 
-Cette technologie de conteneurisation est relativement récente et permet :
+Ces technologie de conteneurisation est relativement récente et permet :
 
 * aux développeurs de faire tourner n'importe quel langage, n'importe quelle base de donées, dans n'importe quel système LINUX. Le développeur gère lui-même les applications qu'il utilise, les librairies, le code... Et ne se préoccupe pas du déploiement.
 
