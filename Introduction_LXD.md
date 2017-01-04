@@ -20,3 +20,36 @@ LXD comprend trois composants :
 * Un plug-in Openstack qui va permettre à Openstack d'utiliser les commandes LXC pour gérer les conteneurs. 
 
 (source : [https://www.youtube.com/watch?v=kXnMHZym86Q](https://www.youtube.com/watch?v=kXnMHZym86Q)).
+
+###Installation de lXD
+
+Sur la version UBUNTU 16.04 LTS (celle qui nous utilisons) : 
+
+	$ sudo apt-get install lxd
+
+Par défaut, LXD va créer un nouveau groups d'utilisateur. Les membres des groupes *admin* et *sudoers* sont ajouté automatiquement.
+Si votre utilisateur ne fait pas partie de ces groupes, vout pouvez l'ajouter automatiquement avec la commande : 
+
+	$ newgrp lxd
+
+Ensuite, place à la configuration : 
+
+	$ sudo lxd init
+	Name of the storage backend to use (dir or zfs) [default=dir]: 
+
+Ici, on nous demande quel système de stockage nous voulons utiliser (dir ou zfs). *ZFS* est beaucoup plus rapide que *dir* et Ubuntu 16.04 LTS supporte le ZFS, nous allons donc partir là-dessus.
+
+A titre de comparaison *"Arne svendsen"* à poster un commentaire sur l'article ["LXD, ZFS and bridged networking on Ubuntu 16.04 LTS"](https://bayton.org/2016/05/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/) :
+
+>I also did some tests in VB with same virtualized hardware and can confirm that the difference is huge compared to zfs and dir.
+>
+>Create second container:
+>ZFS: 16,2
+>DIR: 50,2
+>DIR ON ZFS: 1,09 seconds
+>
+>Create LXC snapshot:
+>ZFS: 0,5 seconds (My fingers are too slow to react. Probably much less).
+>DIR: 44 seconds
+>DIR ON ZFS: 1,08 seconds 
+
