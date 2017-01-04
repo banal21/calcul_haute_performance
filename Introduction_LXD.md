@@ -1,4 +1,4 @@
-###Introduction à LXD
+##Introduction à LXD
 
 ####Qu'est-ce que c'est ?
 
@@ -21,7 +21,7 @@ LXD comprend trois composants :
 
 (source : [https://www.youtube.com/watch?v=kXnMHZym86Q](https://www.youtube.com/watch?v=kXnMHZym86Q)).
 
-###Installation de lXD
+##Installation de lXD
 
 Sur la version UBUNTU 16.04 LTS (celle qui nous utilisons) : 
 
@@ -52,4 +52,12 @@ A titre de comparaison *"Arne svendsen"* à poster un commentaire sur l'article 
 >ZFS: 0,5 seconds (My fingers are too slow to react. Probably much less).
 >DIR: 44 seconds
 >DIR ON ZFS: 1,08 seconds 
+
+Nota : Pour pouvoir utiliser ZFS, des paquets suplémentaires sont necessaires :
+
+	$ sudo apt-get install zfsutils-linux
+
+Et pendant qu'on y est, pour la mise en place du "bridge", nous auront besoin d'utilitaires contenus dans le paquet *bridge-utils* :
+
+	$ sudo apt-get install bridge-utils
 
