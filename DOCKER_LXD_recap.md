@@ -1,5 +1,3 @@
-## Initiation aux conteneurs
-
 ### Docker et lxc, des outils de création de *containers* 
 
 #### Introduction 
