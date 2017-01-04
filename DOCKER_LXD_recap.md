@@ -1,7 +1,5 @@
 ### Docker et lxc, des outils de création de *containers* 
 
-#### Introduction 
-
 Pour la réalisation de se projet, nous allons nous intéresser à quelques outils de création de *containers* tel que :
 
 * Docker
