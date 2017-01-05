@@ -27,12 +27,14 @@ Sur la version UBUNTU 16.04 LTS (celle qui nous utilisons) :
 
 	$ sudo apt-get install lxd
 
-Par défaut, LXD va créer un nouveau groups d'utilisateur. Les membres des groupes *admin* et *sudoers* sont ajouté automatiquement.
+Par défaut, LXD va créer un nouveau groups d'utilisateur. Les membres des groupes *admin* et *sudoers* sont ajoutés automatiquement.
 Si votre utilisateur ne fait pas partie de ces groupes, vout pouvez l'ajouter automatiquement avec la commande : 
 
 	$ newgrp lxd
 
-Ensuite, place à la configuration : 
+Ensuite, place à...
+
+##La configuration 
 
 	$ sudo lxd init
 	Name of the storage backend to use (dir or zfs) [default=dir]: 
