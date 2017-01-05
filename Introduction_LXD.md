@@ -21,7 +21,7 @@ LXD comprend trois composants :
 
 (source : [https://www.youtube.com/watch?v=kXnMHZym86Q](https://www.youtube.com/watch?v=kXnMHZym86Q)).
 
-##Installation de lXD
+##Installation de LXD
 
 Sur la version UBUNTU 16.04 LTS (celle qui nous utilisons) : 
 
