@@ -36,10 +36,27 @@ Ensuite, place à...
 
 ##La configuration 
 
-	$ sudo lxd init
-	Name of the storage backend to use (dir or zfs) [default=dir]: 
+Avant de se lancer dans la configuration, on a deux question à ce poser : 
 
-Ici, on nous demande quel système de stockage nous voulons utiliser (dir ou zfs). *ZFS* est beaucoup plus rapide que *dir* et Ubuntu 16.04 LTS supporte le ZFS, nous allons donc partir là-dessus.
+1. LXD propose deux système de fichier : dir ou zfs. Voulons-nous effectuer des snapshot rapidement ? *OUI*, nous allons donc configurer LXD avec le système de fichier ZFS.
+2. Voulons-nous avoir accès à internet depuis nos conteneurs, et leurs assignés des adresses IP ? *OUI*, nous allons donc mettre en place un *bridge*.
+
+* Point technique : Le *Bridge*, dans le cas de conteneurs, va nous permettre d'assigner des adresses IP pour chaques conteneurs. Nous pourrons donc avoir accès aux conteneurs via leurs adresses IP, et eux-même pourrons avoir accès à internet.
+
+Pour pouvoir utiliser ZFS, des paquets suplémentaires sont necessaires :
+
+	$ sudo apt-get install zfsutils-linux
+
+Et pendant qu'on y est, pour la mise en place du "bridge", nous auront besoin d'utilitaires contenus dans le paquet *bridge-utils* :
+
+	$ sudo apt-get install bridge-utils
+
+READY pour configurer :
+
+	$ sudo lxd init
+	Name of the storage backend to use (dir or zfs) [default=dir]: *zfs*
+
+Comme précisé plus haut, ZFS est plus efficace et plus rapide que DIR et Ubuntu 16.04 LTS le supporte.
 
 A titre de comparaison *"Arne svendsen"* à poster un commentaire sur l'article ["LXD, ZFS and bridged networking on Ubuntu 16.04 LTS"](https://bayton.org/2016/05/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/) :
 
@@ -55,11 +72,4 @@ A titre de comparaison *"Arne svendsen"* à poster un commentaire sur l'article 
 >DIR: 44 seconds
 >DIR ON ZFS: 1,08 seconds 
 
-Nota : Pour pouvoir utiliser ZFS, des paquets suplémentaires sont necessaires :
-
-	$ sudo apt-get install zfsutils-linux
-
-Et pendant qu'on y est, pour la mise en place du "bridge", nous auront besoin d'utilitaires contenus dans le paquet *bridge-utils* :
-
-	$ sudo apt-get install bridge-utils
 
