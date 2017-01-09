@@ -1,0 +1,81 @@
+CREATION CONTAINER
+
+root@Master:~# lxc launch ubuntu:xenial slurm1
+If this is your first time using LXD, you should also run: sudo lxd init
+To start your first container, try: lxc launch ubuntu:16.04
+
+Creating slurm1
+Retrieving image: 100%
+Starting slurm1
+root@Master:~# lxc launch ubuntu:xenial slurm2
+Creating slurm2
+Starting slurm2
+
+
+LISTE
+
+lxc list
++--------+---------+---------------------+------+------------+-----------+
+|  NAME  |  STATE  |        IPV4         | IPV6 |    TYPE    | SNAPSHOTS |
++--------+---------+---------------------+------+------------+-----------+
+| slurm1 | RUNNING | 10.20.96.106 (eth0) |      | PERSISTENT | 0         |
++--------+---------+---------------------+------+------------+-----------+
+| slurm2 | RUNNING | 10.20.96.129 (eth0) |      | PERSISTENT | 0         |
++--------+---------+---------------------+------+------------+-----------+
+
+INFO
+
+lxc info slurm1
+
+lxc info --expended slurm1
+
+PROFILE
+
+Création profile :
+root@Master:~# lxc profile create single_core
+Profile single_core created
+
+Restriction :
+root@Master:~# lxc profile set single_core limits.memory 400MB
+root@Master:~# lxc profile set single_core limits.cpu 1
+
+Appliquer le profile aux conteneurs :
+root@Master:~# lxc profile apply slurm1 single_core,default (DANS LE PROFILE DEFAULT YA LA CONFIG BRIDGE)
+Profiles single_core applied to slurm1
+root@Master:~# lxc profile apply slurm2 single_core,default
+Profiles single_core applied to slurm2
+
+(Pour avoir tout les droit sur le conteneur étant donnée que meme si on se voit root, on l'est pas
+vraiment)
+root@Master:# lxc profile create privileged
+root@Master:# lxc profile set privileged security.privileged true
+root@Master:# lxc profile apply slurm1 single_core,default,privileged
+
+Liste des profile :
+
+lxc profile list 
++-------------+---------+
+|    NAME     | USED BY |
++-------------+---------+
+| default     | 2       |
++-------------+---------+
+| docker      | 0       |
++-------------+---------+
+| single_core | 2       |
++-------------+---------+
+
+root@Master:# lxc profile show default
+name: default
+config: {}
+description: Default LXD profile
+devices:
+  eth0:
+    nictype: bridged
+    parent: br0
+    type: nic
+usedby:
+- /1.0/containers/slurm1
+- /1.0/containers/slurm2
+
+
+
