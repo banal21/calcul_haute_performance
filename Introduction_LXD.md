@@ -72,4 +72,28 @@ A titre de comparaison *"Arne svendsen"* à poster un commentaire sur l'article 
 >DIR: 44 seconds
 >DIR ON ZFS: 1,08 seconds 
 
+	Create a new ZFS pool (yes/no) [default=yes]? _yes_
+	Name of the new ZFS pool [default=lxd]: _lxd_
+	Would you like to use an existing block device (yes/no) [default=no]? _no_
+	Size in GB of the new loop device (1GB minimum) [default=15]: _5Go_
+
+Ici, nous allons choisir une espace de 5Go, suffisant pour faire des premiers tests. 
+
+	Would you like LXD to be available over the network (yes/no) [default=no]? _no_
+	Do you want to configure the LXD bridge (yes/no) [default=yes]? _yes_
+
+Pour la configuration du bridge, l'installateur est suffisament explicite, et je ne m'attarderai pas à expliquer chaques étapes.
+Pour faire court : 
+
+1. Choisir un nom d'interface pour notre bridge.
+2. Choisir un sous-réseau. (IPv4)
+3. Choisir un masque.
+
+Une fois l'installation terminé, nous pouvons commencer à créer nos premiers conteneurs...
+
+
+
+
+
+
 
