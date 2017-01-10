@@ -18,7 +18,7 @@ Il peut y avoir un autre slurmctld en backup au cas ou il y aurait un problème.
 Chaque noeud du cluster possède un daemon slurmd, qui attend du travail, execute le travail, retourne
 les status, puis attends pour plus de travail. Le daemon Slurmd est tolèrent au pannes.
 
-Il y a une option *slurmdbd* qui peut être utilisé pour enregistrer les infos sur les compte qui utilise le cluster slurm. ???????????????
+Il y a une option ([slurmdbd](http://manpages.ubuntu.com/manpages/xenial/man8/slurmdbd.8.html)) qui peut être utilisé pour enregistrer les infos sur les compte qui utilise le cluster slurm.
 
 
 ####Les outils utilisateur
