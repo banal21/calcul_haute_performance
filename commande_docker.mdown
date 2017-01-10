@@ -3,65 +3,65 @@
 
 Chercher une image:
 
-	'$ docker search ubuntu'
+	$ docker search ubuntu
 
 Récupérer une image:
 
-	'$ docker pull debian'
+	$ docker pull debian
 
 Voir les images récupérées:
 
-	'$ docker images'
+	$ docker images
 
 Connaitre tout les détails d'une image:
 
-	'$ docker inspect debian'
+	$ docker inspect debian
 
 Lance un terminal à l'intérieur du conteneur:
 L'attribut -t permet de lancer un terminal et -i nous y autorise a nous y connecter en récupérant directement l’entrée standard (STDIN).
 
-	'$ docker run -t -i debian:latest /bin/bash'
+	$ docker run -t -i debian:latest /bin/bash
 
 Demande des informations sur tous les conteneurs en cours d'éxécutions:
 
-	'$ docker ps'
+	$ docker ps
 
 L’option -a de la commande ps nous permet d’afficher tous les conteneurs, y compris ceux arrêtés.
 
 Cette commande retourne la sortie standard (STDOUT) d’un conteneur donné:
 
-	'$ docker logs [names_du_conteneur]'
+	$ docker logs [names_du_conteneur]
 
 Mets un conteneur en pause:
 
-	'$ docker pause [names_du_conteneur]'
-	'$ docker unpause [names_du_conteneur]'
+	$ docker pause [names_du_conteneur]
+	$ docker unpause [names_du_conteneur]
 
 Arreter un conteneur:
 
-	'$ docker stop [names_du_conteneur]'
+	$ docker stop [names_du_conteneur]
 
 Démarrer le conteneur:
 
-	'$ docker start [names_du_conteneur]'
+	$ docker start [names_du_conteneur]
 
 Permet de se reconnecter a un conteneur:
 
-	'$ docker attach [names_du_conteneur]'
+	$ docker attach [names_du_conteneur]
 
 Renommé un docker:
 
-	'$ docker rename [names_du_conteneur] [nouveau_names]'
+	$ docker rename [names_du_conteneur] [nouveau_names]
 
 Différences apportés a l'image d'origine:
 
-	'$ docker diff [names_du_conteneur]'
+	$ docker diff [names_du_conteneur]
 
 Pour connaître l’adresse IP d’un conteneur, coté conteneur:
 
-	'root@646c9d0d39a0:/# ip -4 -o a show eth0'
+	root@646c9d0d39a0:/# ip -4 -o a show eth0
 
 depuis l’hôte:
 
-	'$ docker inspect --format "{{.NetworkSettings.IPAddress}}" [names_du_conteneur]'
+	$ docker inspect --format "{{.NetworkSettings.IPAddress}}" [names_du_conteneur]
 
