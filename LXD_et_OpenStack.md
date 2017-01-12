@@ -28,9 +28,9 @@ Le site web [InfoQ](https://www.infoq.com/fr/) à fait [un entretien](https://ww
 
 Dans cet entretien, Samuel Cozannet définie l'objectif de Juju comme cela : 
 
-	InfoQ FR: Quels sont les buts du projet de façon générale ?
+InfoQ FR: Quels sont les buts du projet de façon générale ?
 
-	On assiste aujourd'hui à la nouvelle représentation d'une application, comme un ensemble de micro-services qui sont déployés sur un mix cloud privé/cloud public. L'objectif de Juju, c'est de mettre en relation ces services, de les orchestrer, sur n'importe quel cloud, voire même sur des substrats bare metal (NdE: directement sur des serveurs physiques non-préinstallés), sur des containers, des VM, etc. Toute l'application, complexe, faite de micro-parties va être orchestrée par Juju (on peut penser Big Data, PaaS... Toute application faite de plus de 2 services distincts est potentiellement juju-phile).
+* On assiste aujourd'hui à la nouvelle représentation d'une application, comme un ensemble de micro-services qui sont déployés sur un mix cloud privé/cloud public. L'objectif de Juju, c'est de mettre en relation ces services, de les orchestrer, sur n'importe quel cloud, voire même sur des substrats bare metal (NdE: directement sur des serveurs physiques non-préinstallés), sur des containers, des VM, etc. Toute l'application, complexe, faite de micro-parties va être orchestrée par Juju (on peut penser Big Data, PaaS... Toute application faite de plus de 2 services distincts est potentiellement juju-phile).
 
 ####Conjure-up
 
