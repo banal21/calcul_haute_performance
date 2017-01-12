@@ -23,7 +23,7 @@ On peut maintenant l'éxécuté dans un container pour le générer, cela permet
 
 On peut maintenant déployer un cluster Swarm, le script suivant en est un exemple:
 
-# on each of your nodes, start the swarm agent
+'# on each of your nodes, start the swarm agent
 # <node_ip> doesn’t have to be public (eg. 192.168.0.X),
 # as long as the swarm manager can access it.
 $ docker run -d swarm join –addr=<node_ip:2375> token://<cluster_id>
@@ -36,5 +36,40 @@ $ docker -H tcp://<swarm_ip:swarm_port> ps
 $ docker -H tcp://<swarm_ip:swarm_port> logs …
 …
 # list nodes in your cluster
-$ docker run –rm swarm list token://<cluster_id> <node_ip:2375>
+$ docker run –rm swarm list token://<cluster_id> <node_ip:2375>'
+
+
+####Configuration#
+
+La première étape est de créer le serveur Docker qui hébergera le rôle de "Swarm_master".
+
+'docker-machine -D create -d azure \
+—azure-subscription-id="<identifiant de la souscription>" \
+—azure-publish-settings-file="<fichier de parametres de publication>" \
+—azure-location "West Europe" \
+—swarm \
+—swarm-master \
+—swarm-discovery token://<token généré avec Swarm> \
+swarm-master-qa-stephgou'
+
+Maintenant on peut créer les noeuds du cluster.
+
+'docker-machine -D create -d azure \
+—azure-subscription-id="<identifiant de la souscription>" \
+—azure-publish-settings-file="<fichier de parametres de publication>" \
+—azure-location "West Europe" \
+—swarm \
+—swarm-discovery token://<token généré avec Swarm> \
+swarm-node-qa-stephgou-0'
+
+Le driver Azure, pour Docker Machine ne créant pas automatiquement les points de terminaissons pour autoriser les flux d'échange sur le port 3376
+correspondant au cluster Swarm. il faut donc ajouter ce point de terminaison afin de finaliser la configuration du cluster.
+
+Il est maintenant possible d'interroger Docker pour connaître la configuration du cluster avec la commande :
+
+	'docker info'
+
+Pour obtenir des informations filtrées sur la liste des noeuds du cluster Swarm, on peut utiliser la commande :
+
+	'docker run -rm swarm list token://<token généré avec Swarm>'
 
