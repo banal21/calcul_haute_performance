@@ -2,7 +2,7 @@
 
 ####Qu'est-ce que c'est ?
 
-LXD est un projet fondé par [Canonical ltd](https://www.canonical.com/). Ce n'est pas une nouvelle verision de [*LXC*](https://github.com/banal21/calcul_haute_performance/blob/master/DOCKER_LXC_recap.md), c'est un projet à part entière.
+LXD est un projet fondé par [Canonical ltd](https://www.canonical.com/). Ce n'est pas une nouvelle version de [*LXC*](https://github.com/banal21/calcul_haute_performance/blob/master/DOCKER_LXC_recap.md), c'est un projet à part entière.
 
 LXD est donc plus complet que *LXC* et propose :
 
