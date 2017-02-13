@@ -1,16 +1,16 @@
 ##LXD et OpenStack
 
-Gardons à l'esprit que nous voulons réaliser des calculs dans des conteneurs. En somme, créer un cluser de conteneurs, qui pourrons chacun effectuer un calcul de manière indépendante.
+Gardons à l'esprit que nous voulons réaliser des calculs dans des conteneurs. En somme, créer un cluster de conteneurs, qui pourrons chacun effectuer un calcul de manière indépendante.
 
-La technologie [Docker](https://fr.wikipedia.org/wiki/Docker_%28logiciel%29) permet déjà de le faire grâce à Docker swarm. [Un tutoriel](https://blogs.msdn.microsoft.com/stephgou/2015/05/11/clusters-de-containers-docker/) proposé par "stephgou" décrit très bien cette technologie.
+La technologie [Docker](https://fr.wikipedia.org/wiki/Docker_%28logiciel%29) permet déjà de le faire grâce à Docker swarm. [Un tutoriel](https://blogs.msdn.microsoft.com/stephgou/2015/05/11/clusters-de-containers-docker/) proposé par "stephgou", il décrit très bien cette technologie.
 
 Nous voulons pousser les recherches pour savoir si cela est possible avec la techonologie LXD (rappel: technologie plus lourde que docker).
 
-Après maintes recherches sur internet, on semble convérger vers le même point : OpenStack.
+Après maintes recherches sur internet, on semble converger vers le même point : OpenStack.
 
 ##Expérimentation
 
-M. Chantrein, tuteur de ce projet, nous à donné le liens d'un [tutoriel](https://www.stgraber.org/2016/10/26/lxd-2-0-lxd-and-openstack-1112/) de mise en place de LXD et d'OpenStack que nous allons suivre.
+M. Chantrein, tuteur de ce projet, nous a donné le lien d'un [tutoriel](https://www.stgraber.org/2016/10/26/lxd-2-0-lxd-and-openstack-1112/) de mise en place de LXD et d'OpenStack que nous allons suivre.
 
 Plusieurs outils seront utilisés lors de ce tutoriel en voici un bref descriptif :
 
@@ -24,7 +24,7 @@ Openstack possède plusieurs outils, celui que nous allons utiliser est [Nova](h
 
 Juju est développé par [Canonical](https://www.canonical.com/) et est désigné comme un outil d'orchestration cloud. 
 
-Le site web [InfoQ](https://www.infoq.com/fr/) à fait [un entretien](https://www.infoq.com/fr/articles/juju-avancees-et-roadmap) avec Samuel Cozannet, "Strategic Program Manager" chez canonical et membre du projet Juju.
+Le site web [InfoQ](https://www.infoq.com/fr/) a fait [un entretien](https://www.infoq.com/fr/articles/juju-avancees-et-roadmap) avec Samuel Cozannet, "Strategic Program Manager" chez canonical et membre du projet Juju.
 
 Dans cet entretien, Samuel Cozannet définie l'objectif de Juju comme cela : 
 
@@ -46,13 +46,13 @@ Plus de détails sur : [http://packages.ubuntu.com/fr/yakkety/admin/conjure-up](
 
 ###Pas à pas
 
-Dans ce tutoriel, il va s'agir d'executer un Openstack complet, en utilisant des conteneurs LXD au lieu de machines virtuelles, et en exécutant le tout dans un "nid" de conteneurs. 
+Dans ce tutoriel, il va s'agir d'exécuter un Openstack complet, en utilisant des conteneurs LXD au lieu de machines virtuelles, et en exécutant le tout dans un "nid" de conteneurs. 
 
 ####Etape 1
 
-Création du "nid" de conteneur. Pour faire simple, création d'un conteneur lxd nommé Openstack.
+Création du "nid" de conteneurs. Pour faire simple, création d'un conteneur lxd nommé Openstack.
 
-Pour que le "nid" puisse installer les outils Conjure-up / Juju, il lui faut un accès internet mis à place grâce à un "bridge"
+Pour que le "nid" puisse installer les outils Conjure-up / Juju, il lui faut un accès internet mis en place grâce à un "bridge"
 
 	& lxd init
 	.
@@ -63,9 +63,9 @@ Pour que le "nid" puisse installer les outils Conjure-up / Juju, il lui faut un 
 
 * Choisir un nom d'interface pour notre bridge : br0
 * Choisir un sous-réseau, ici : 10.143.224.1
-* CHoisir un masque, ici : /24
+* Choisir un masque, ici : /24
 
-* Nota : Ce "nid" de conteneur à besoin de privilèges particuliers
+* Nota : Ce "nid" de conteneurs a besoin de privilèges particuliers
 
 	& lxc launch ubuntu:16.04 openstack -c security.privileged=true -c security.nesting=true -c "linux.kernel_modules=iptable_nat, ip6table_nat, ebtables, openvswitch"
 
@@ -109,7 +109,7 @@ Configuration de lxd à **l'interieur** du "nid" :
 
 	& lxc exec openstack -- lxd init
 
-* **/!\** Le système de fichier ZFS ne fonctionne pas dans un conteneurs imbriqué lxd. choisir **dir**
+* **/!\** Le système de fichiers ZFS ne fonctionne pas dans un conteneur imbriqué lxd. Choisir **dir**
 * Ne pas configurer d'adresse Ipv6 lors de la configuration du bridge, conjure-up/Juju ne fonctionne pas bien avec. 
 
 Paramètres du bridge :
