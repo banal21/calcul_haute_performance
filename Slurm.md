@@ -36,3 +36,5 @@ et de la topologie du réseau.
 
 
 ![IMAGE](https://slurm.schedmd.com/arch.gif)
+
+A voir : [http://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-185/Construire-son-cluster-HPC](http://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-185/Construire-son-cluster-HPC)
