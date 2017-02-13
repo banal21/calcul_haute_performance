@@ -23,13 +23,11 @@ On peut maintenant l'éxécuté dans un container pour le générer, cela permet
 
 On peut maintenant déployer un cluster Swarm, le script suivant en est un exemple:
 
-on each of your nodes, start the swarm agent
-<node_ip> doesn’t have to be public (eg. 192.168.0.X),
-as long as the swarm manager can access it.
+on each of your nodes, start the swarm agent <node_ip> doesn’t have to be public (eg. 192.168.0.X), as long as the swarm manager can access it.
 $ docker run -d swarm join –addr=<node_ip:2375> token://<cluster_id>
-start the manager on any machine or your laptop
+Start the manager on any machine or your laptop
 $ docker run -d -p <swarm_port>:2375 swarm manage token://<cluster_id>
-use the regular docker cli
+Use the regular docker cli
 $ docker -H tcp://<swarm_ip:swarm_port> info
 $ docker -H tcp://<swarm_ip:swarm_port> run …
 $ docker -H tcp://<swarm_ip:swarm_port> ps
@@ -62,8 +60,7 @@ Maintenant on peut créer les noeuds du cluster.
 —swarm-discovery token://<token généré avec Swarm> \
 swarm-node-qa-stephgou-0'
 
-Le driver Azure, pour Docker Machine ne créant pas automatiquement les points de terminaissons pour autoriser les flux d'échange sur le port 3376
-correspondant au cluster Swarm. il faut donc ajouter ce point de terminaison afin de finaliser la configuration du cluster.
+Le driver Azure, pour Docker Machine ne créant pas automatiquement les points de terminaissons pour autoriser les flux d'échange sur le port 3376 correspondant au cluster Swarm. il faut donc ajouter ce point de terminaison afin de finaliser la configuration du cluster.
 
 Il est maintenant possible d'interroger Docker pour connaître la configuration du cluster avec la commande :
 
