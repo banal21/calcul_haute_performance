@@ -1,7 +1,7 @@
 ###Docker Swarm#
 
 
-Docker Swarm est la technologie native, proposée par Docker pour gérer le clustering de containers Docker. Plus précisément il permet de créer des groupes de serveurs hôtes exécutant les services de Docker, de les exposer comme un seul hôte Docker virtuel, puis de configurer des containers Docker en gérant automatiqument la répartition de la charge et la gestion de l'état du cluster.
+Docker Swarm est la technologie native, proposée par Docker pour gérer le clustering de containers Docker. Plus précisément il permet de créer des groupes de serveurs hôtes exécutant les services de Docker, de les exposer comme un seul hôte Docker virtuel, puis de configurer des containers Docker en gérant automatiquement la répartition de la charge et la gestion de l'état du cluster.
 
 Docker Swarm utilise l'API standard de Docker, pour utiliser Swarm il suffit donc d'être connecté a un outil qui communique avec un démon de Docker pour réaliser les mêmes actions sur de multiples hôtes Docker de manière transparente.
 
@@ -23,19 +23,19 @@ On peut maintenant l'éxécuté dans un container pour le générer, cela permet
 
 On peut maintenant déployer un cluster Swarm, le script suivant en est un exemple:
 
-'# on each of your nodes, start the swarm agent
-# <node_ip> doesn’t have to be public (eg. 192.168.0.X),
-# as long as the swarm manager can access it.
+on each of your nodes, start the swarm agent
+<node_ip> doesn’t have to be public (eg. 192.168.0.X),
+as long as the swarm manager can access it.
 $ docker run -d swarm join –addr=<node_ip:2375> token://<cluster_id>
-# start the manager on any machine or your laptop
+start the manager on any machine or your laptop
 $ docker run -d -p <swarm_port>:2375 swarm manage token://<cluster_id>
-# use the regular docker cli
+use the regular docker cli
 $ docker -H tcp://<swarm_ip:swarm_port> info
 $ docker -H tcp://<swarm_ip:swarm_port> run …
 $ docker -H tcp://<swarm_ip:swarm_port> ps
 $ docker -H tcp://<swarm_ip:swarm_port> logs …
 …
-# list nodes in your cluster
+list nodes in your cluster
 $ docker run –rm swarm list token://<cluster_id> <node_ip:2375>'
 
 
