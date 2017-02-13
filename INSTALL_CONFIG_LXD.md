@@ -9,7 +9,7 @@ LXD est donc plus complet que *LXC* et propose :
 * Une gestion des images. (Les modèles qui permettent de créer des conteneurs).
 * La gestion des conteneurs. (Démarrage, snapshot, annulation, etc ...).
 * La gestion de multiples serveurs distant. (Gestion de serveurs distants et locaux).
-* La migration de conteneur en ligne.
+* La migration de conteneurs en ligne.
 
 LXD est nommé [Hyperviseur](https://fr.wikipedia.org/wiki/Hyperviseur) par la société Canonical. 
 
@@ -36,14 +36,14 @@ Ensuite, place à...
 
 ##La configuration 
 
-Avant de se lancer dans la configuration, on a deux question à ce poser : 
+Avant de se lancer dans la configuration, on a deux questions à se poser : 
 
-1. LXD propose deux système de fichier : dir ou zfs. Voulons-nous effectuer des snapshot rapidement ? *OUI*, nous allons donc configurer LXD avec le système de fichier ZFS.
+1. LXD propose deux système de fichiers : dir ou zfs. Voulons-nous effectuer des snapshot rapidement ? *OUI*, nous allons donc configurer LXD avec le système de fichiers ZFS.
 2. Voulons-nous avoir accès à internet depuis nos conteneurs, et leurs assignés des adresses IP ? *OUI*, nous allons donc mettre en place un *bridge*.
 
 * Point technique : Le *Bridge*, dans le cas de conteneurs, va nous permettre d'assigner des adresses IP pour chaques conteneurs. Nous pourrons donc avoir accès aux conteneurs via leurs adresses IP, et eux-même pourrons avoir accès à internet.
 
-Pour pouvoir utiliser ZFS, des paquets suplémentaires sont necessaires :
+Pour pouvoir utiliser ZFS, des paquets suplémentaires sont nécessaires :
 
 	$ sudo apt-get install zfsutils-linux
 
@@ -58,7 +58,7 @@ READY pour configurer :
 
 Comme précisé plus haut, ZFS est plus efficace et plus rapide que DIR et Ubuntu 16.04 LTS le supporte.
 
-A titre de comparaison *"Arne svendsen"* à poster un commentaire sur l'article ["LXD, ZFS and bridged networking on Ubuntu 16.04 LTS"](https://bayton.org/2016/05/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/) :
+A titre de comparaison *"Arne svendsen"* a posté un commentaire sur l'article ["LXD, ZFS and bridged networking on Ubuntu 16.04 LTS"](https://bayton.org/2016/05/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/) :
 
 >I also did some tests in VB with same virtualized hardware and can confirm that the difference is huge compared to zfs and dir.
 >
@@ -77,7 +77,7 @@ A titre de comparaison *"Arne svendsen"* à poster un commentaire sur l'article 
 	Would you like to use an existing block device (yes/no) [default=no]? _no_
 	Size in GB of the new loop device (1GB minimum) [default=15]: _5Go_
 
-Ici, nous allons choisir une espace de 5Go, suffisant pour faire des premiers tests. 
+Ici, nous allons choisir un espace de 5Go, suffisant pour faire des premiers tests. 
 
 	Would you like LXD to be available over the network (yes/no) [default=no]? _no_
 	Do you want to configure the LXD bridge (yes/no) [default=yes]? _yes_
