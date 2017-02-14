@@ -69,6 +69,6 @@ Vérifiez quels nodes de votre cluster fait tourner l'application.
 ####Sources
 
 
-[supinfo](https://www.supinfo.com/articles/single/3037-comment-configurer-docker-swarm)
-[IT wars](http://www.it-wars.com/posts/virtualisation/docker-swarm-par-lexemple/)
-[d2-si](http://blog.d2-si.fr/2016/06/29/start-up-docker-swarm/)
+* [supinfo](https://www.supinfo.com/articles/single/3037-comment-configurer-docker-swarm)
+* [IT wars](http://www.it-wars.com/posts/virtualisation/docker-swarm-par-lexemple/)
+* [d2-si](http://blog.d2-si.fr/2016/06/29/start-up-docker-swarm/)
