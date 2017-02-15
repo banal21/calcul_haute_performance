@@ -21,7 +21,7 @@ En à donc deux possibilités :
 La première solution parraît très compliqué, et la communauté de Docker est relativement active, nous trouvons sans problèmes des images Dockers avec slurmd / slurmctld de mis en place.
 
 Nous allons donc partir sur la deuxième solution.
-Les images les plus populaires avec slurmd : 
+Les images les plus populaires avec slurmd / slurmctld : 
 
 * [https://hub.docker.com/r/qnib/slurmd/](https://hub.docker.com/r/qnib/slurmd/) 
 * [https://hub.docker.com/r/datadrivenhpc/slurmd/](https://hub.docker.com/r/datadrivenhpc/slurmd/)
